@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Concept: Transport, Heavy Equipment and Warehousing, Muscat | Wenoy</title>
+<meta name="description" content="Concept design for a Muscat-based transportation, heavy equipment rental and warehousing company serving Oman and the GCC.">
+<meta name="theme-color" content="#0F1113">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;600;800&family=Cairo:wght@700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{--bg:#0F1113;--bg2:#171A1D;--bone:#E9E6DF;--mut:#8D9298;--amber:#F2A900;--line:rgba(233,230,223,.16);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--bone);font:400 17px/1.6 Manrope,Tajawal,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[dir=rtl] body{font-family:Tajawal,Manrope,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}ul{list-style:none;padding:0}
+.disp{font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
+[dir=rtl] .disp{font-family:Cairo,Tajawal,sans-serif;text-transform:none;letter-spacing:0;line-height:1.18}
+.w{width:min(1240px,100% - 40px);margin-inline:auto}
+.eyebrow,.num{font:800 .76rem Manrope,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)}
+[dir=rtl] .eyebrow,[dir=rtl] .num{letter-spacing:0;text-transform:none;font:700 .95rem Tajawal,sans-serif}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border:1px solid var(--bone);font:700 .82rem Manrope,Tajawal,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--bone);transition:background .3s,color .3s,transform .3s}
+[dir=rtl] .btn{letter-spacing:0;text-transform:none;font-size:.95rem}
+.btn:hover{background:var(--bone);color:var(--bg);transform:translateY(-2px)}
+.btn.a{background:var(--amber);border-color:var(--amber);color:#111}.btn.a:hover{background:var(--bone);border-color:var(--bone)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(20px,4vw);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.s{background:rgba(15,17,19,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font:900 1.1rem 'Big Shoulders Display',Cairo,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+[dir=rtl] .brand{letter-spacing:0;font-size:1.2rem}
+.brand svg{width:30px;height:30px;flex:none}
+.nl{display:flex;gap:30px;font-size:.88rem;color:var(--mut)}.nl a:hover{color:var(--bone)}
+.rt{display:flex;gap:10px;align-items:center}.rt .btn{padding:10px 16px}
+@media(max-width:900px){.nl{display:none}}@media(max-width:520px){.rt .a{display:none}}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:130px 0 64px;overflow:hidden;isolation:isolate}
+#gl,#hf{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(15,17,19,.92) 6%,rgba(15,17,19,.25) 72%),linear-gradient(0deg,var(--bg) 2%,transparent 38%)}
+[dir=rtl] .hero::after{background:linear-gradient(270deg,rgba(15,17,19,.92) 6%,rgba(15,17,19,.25) 72%),linear-gradient(0deg,var(--bg) 2%,transparent 38%)}
+.hero h1{font-size:clamp(3.5rem,14vw,10.8rem);margin:18px 0 0}
+[dir=rtl] .hero h1{font-size:clamp(3rem,11vw,8.4rem)}
+.ln{display:block;overflow:hidden;padding:.03em 0 .06em}.ln span{display:block}
+.lead{max-width:34em;color:#bdbab2;margin:28px 0 34px;font-size:1.08rem}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.coords{position:absolute;inset-inline-end:max(20px,4vw);bottom:64px;font:600 .7rem Manrope,sans-serif;letter-spacing:.24em;color:var(--mut);writing-mode:vertical-rl}
+@media(max-width:700px){.coords{display:none}}
+/* sections */
+section{position:relative}
+.sec{padding:120px 0}
+h2{font-size:clamp(2.6rem,8vw,6.4rem)}
+[dir=rtl] h2{font-size:clamp(2.2rem,6.4vw,5rem)}
+.intro{padding:130px 0 70px}.intro h2{max-width:11em;margin-top:16px}
+/* d1 route */
+.d1{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:100px 0 60px;border-top:1px solid var(--line)}
+.d1 h3,.d2 h3,.d3 h3{font-size:clamp(2.4rem,7vw,5.6rem);margin:14px 0 16px}
+[dir=rtl] .d1 h3,[dir=rtl] .d2 h3,[dir=rtl] .d3 h3{font-size:clamp(2rem,5.6vw,4.4rem)}
+.d{max-width:30em;color:#bdbab2}.tg{margin-top:14px;color:var(--amber);font-weight:700;font-size:.9rem;letter-spacing:.04em}
+.road{position:relative;height:120px;margin-top:56px}
+.road::before{content:"";position:absolute;inset-inline:0;bottom:14px;border-top:2px dashed rgba(233,230,223,.28)}
+.truck{position:absolute;bottom:14px;inset-inline-start:0;width:min(230px,46vw)}
+.truck svg{display:block;width:100%;height:auto}[dir=rtl] .truck svg{transform:scaleX(-1)}
+.nodes{display:flex;justify-content:space-between;margin-top:6px}
+.nodes span{position:relative;padding-top:22px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);transition:color .4s;text-align:center;flex:1}
+[dir=rtl] .nodes span{letter-spacing:0;font-size:.82rem;text-transform:none}
+.nodes span::before{content:"";position:absolute;top:0;left:50%;width:10px;height:10px;margin-left:-5px;border:1.5px solid var(--mut);border-radius:50%;background:var(--bg);transition:.4s}
+.nodes span.on{color:var(--amber)}.nodes span.on::before{background:var(--amber);border-color:var(--amber);transform:scale(1.3)}
+.cap{color:var(--mut);font-size:.8rem;margin-top:18px}
+/* d2 equipment */
+.d2{background:var(--bg2);padding:120px 0}
+.g2{display:grid;gap:50px;align-items:center}
+.idx{margin-top:34px;border-top:1px solid var(--line)}
+.idx li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font:900 clamp(1.5rem,4.2vw,2.6rem)/1 'Big Shoulders Display',Cairo,sans-serif;text-transform:uppercase;transition:padding .35s,color .35s;cursor:default}
+[dir=rtl] .idx li{text-transform:none;font-family:Cairo,sans-serif}
+.idx li::after{content:"+";color:var(--mut);font-weight:400}
+.idx li:hover{color:var(--amber);padding-inline-start:16px}
+.crane{width:100%;height:auto;fill:none;stroke:var(--bone);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.crane *{stroke-dasharray:1;stroke-dashoffset:0}.crane .am{stroke:var(--amber);stroke-width:2.6}
+.crane .gr{stroke:var(--line);stroke-width:1}
+/* d3 warehouse */
+.d3{background:var(--bone);color:#14171A;padding:120px 0}
+.d3 .num{color:#9A6400}.d3 .d{color:#4a4d50}.d3 .tg{color:#9A6400}
+.iso{width:100%;height:auto;max-height:560px}
+/* about */
+.about #ap{font:800 clamp(1.7rem,4.4vw,3.3rem)/1.18 Manrope,Tajawal,sans-serif;max-width:24em}
+[dir=rtl] .about #ap{font-family:Cairo,Tajawal,sans-serif;line-height:1.5}
+.about #ap span{display:inline-block;white-space:pre}
+.about{padding:140px 0}
+/* industries */
+.ind{margin-top:44px;border-top:1px solid var(--line)}
+.ind li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);transition:padding .4s,color .4s}
+.ind b{font:900 clamp(2rem,6.4vw,4.6rem)/1 'Big Shoulders Display',Cairo,sans-serif;text-transform:uppercase}
+[dir=rtl] .ind b{text-transform:none;font-family:Cairo,sans-serif}
+.ind small{color:var(--mut);font-size:.95rem;text-align:end}
+.ind li:hover{color:var(--amber);padding-inline-start:18px}
+@media(max-width:700px){.ind li{flex-direction:column;gap:4px}.ind small{text-align:start}}
+/* showcase */
+.show{height:min(94vh,860px);overflow:hidden;border-block:1px solid var(--line)}
+.show svg{position:absolute;inset:-6% 0 0 0;width:100%;height:112%}
+.show .cp{position:absolute;inset-inline-start:max(20px,4vw);bottom:48px;z-index:2;max-width:16em}
+.show .cp h2{font-size:clamp(2.2rem,6vw,4.6rem);text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.show .cp p{margin-top:10px;color:#d6d2c8}
+/* contact */
+.ct{padding:130px 0 110px}
+.ct .cols{display:grid;gap:50px;margin-top:20px}
+form{display:grid;gap:22px}
+label{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+[dir=rtl] label{letter-spacing:0;font-size:.9rem;text-transform:none}
+input,select,textarea{width:100%;margin-top:6px;padding:12px 0;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--bone);font:400 1.05rem Manrope,Tajawal,sans-serif;border-radius:0;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{border-color:var(--amber);outline:0}
+select option{color:#111}textarea{min-height:90px;resize:vertical}
+.fm{color:var(--amber);font-weight:600;min-height:1.6em}.nt{color:var(--mut);font-size:.82rem}
+footer{border-top:1px solid var(--line);padding:46px 0 60px;color:var(--mut);font-size:.9rem}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(min-width:900px){.g2{grid-template-columns:1fr 1.1fr}.ct .cols{grid-template-columns:1fr 1fr;gap:90px}.g2.rv2 .art{order:2}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+<a class="brand" href="#top" aria-label="Home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#F2A900"/><path d="M12 46V22l20-10 20 10v24M22 46V30h20v16" fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round"/></svg><span data-i="brand"></span></a>
+<nav class="nl"><a href="#services" data-i="n1"></a><a href="#about" data-i="n2"></a><a href="#industries" data-i="n3"></a><a href="#contact" data-i="n4"></a></nav>
+<div class="rt"><button class="btn" id="lg" type="button" aria-label="Switch language">العربية</button><a class="btn a" href="#contact" data-i="quote"></a></div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+<canvas id="gl" aria-hidden="true"></canvas>
+<svg id="hf" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#E9E6DF" stroke-opacity=".18"><path d="M0 420h800M0 480h800M0 540h800M100 360L40 600M300 360L260 600M500 360L520 600M700 360L780 600"/></g><g stroke="#E9E6DF" stroke-opacity=".3"><rect x="420" y="250" width="110" height="46" fill="#2A2E33"/><rect x="540" y="250" width="110" height="46" fill="#F2A900"/><rect x="480" y="200" width="110" height="46" fill="#5B6269"/><rect x="420" y="300" width="110" height="46" fill="#5B6269"/><rect x="540" y="300" width="110" height="46" fill="#2A2E33"/></g></svg>
+<div class="w"><div class="hc">
+<p class="eyebrow" data-i="eyebrow"></p>
+<h1 class="disp"><span class="ln"><span data-i="h1a"></span></span><span class="ln"><span data-i="h1b"></span></span></h1>
+<p class="lead" data-i="lead"></p>
+<div class="row"><a class="btn a" href="#contact" data-i="c1"></a><a class="btn" href="#services" data-i="c2"></a></div>
+</div></div>
+<div class="coords" aria-hidden="true">23.5880° N · 58.3829° E</div>
+</section>
+
+<section class="intro" id="services"><div class="w"><p class="eyebrow" data-i="sKick"></p><h2 class="disp rv" data-i="sT"></h2></div></section>
+
+<section class="d1" id="d1"><div class="w">
+<p class="num">01</p><h3 class="disp" data-i="d1t"></h3><p class="d" data-i="d1d"></p><p class="tg" data-i="d1g"></p>
+<div class="road" id="road"><div class="truck" id="truck"><svg viewBox="0 0 200 76" fill="none" stroke="#E9E6DF" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="118" height="42" fill="#171A1D"/><path d="M4 24h118M4 36h118" stroke-opacity=".3"/><path d="M126 20h34l22 18v12h-56z" fill="#171A1D"/><path d="M134 25h22l12 13h-34z" stroke="#F2A900"/><circle cx="30" cy="56" r="9" fill="#0F1113"/><circle cx="58" cy="56" r="9" fill="#0F1113"/><circle cx="150" cy="56" r="9" fill="#0F1113"/><circle cx="30" cy="56" r="3"/><circle cx="58" cy="56" r="3"/><circle cx="150" cy="56" r="3"/><path d="M182 42h6" stroke="#F2A900" stroke-width="4"/></svg></div></div>
+<div class="nodes" id="nodes"><span data-i="r1"></span><span data-i="r2"></span><span data-i="r3"></span><span data-i="r4"></span><span data-i="r5"></span><span data-i="r6"></span></div>
+<p class="cap" data-i="route"></p>
+</div></section>
+
+<section class="d2" id="d2"><div class="w g2">
+<div><p class="num">02</p><h3 class="disp" data-i="d2t"></h3><p class="d" data-i="d2d"></p>
+<ul class="idx"><li data-i="e1"></li><li data-i="e2"></li><li data-i="e3"></li><li data-i="e4"></li><li data-i="e5"></li></ul></div>
+<div class="art"><svg class="crane" viewBox="0 0 400 300" role="img" aria-label="Crane line drawing">
+<path pathLength="1" class="gr" d="M10 282H390"/>
+<path pathLength="1" d="M44 252h196a14 14 0 0 1 0 28H44a14 14 0 0 1 0-28z"/>
+<path pathLength="1" d="M70 252v-42h132v42"/>
+<path pathLength="1" d="M80 210v-34h48l16 34"/>
+<path pathLength="1" d="M70 214H40v28h30"/>
+<path pathLength="1" d="M172 204L336 52M188 216L346 68M336 52l10 16"/>
+<path pathLength="1" d="M236 138l-12 62"/>
+<path pathLength="1" class="am" d="M341 60v142"/>
+<path pathLength="1" class="am" d="M341 202q-11 6-5 17 8 7 13-3"/>
+<circle pathLength="1" cx="72" cy="266" r="5"/><circle pathLength="1" cx="142" cy="266" r="5"/><circle pathLength="1" cx="212" cy="266" r="5"/>
+</svg></div>
+</div></section>
+
+<section class="d3" id="d3"><div class="w g2 rv2">
+<div><p class="num">03</p><h3 class="disp" data-i="d3t"></h3><p class="d" data-i="d3d"></p><p class="tg" data-i="d3g"></p></div>
+<div class="art"><svg class="iso" id="iso" viewBox="60 140 380 330" aria-hidden="true"></svg></div>
+</div></section>
+
+<section class="about" id="about"><div class="w"><p class="eyebrow" data-i="aT" style="margin-bottom:26px"></p><p id="ap"></p></div></section>
+
+<section class="sec" id="industries" style="padding-top:20px"><div class="w"><p class="eyebrow" data-i="iT"></p>
+<ul class="ind"><li><b data-i="i1"></b><small data-i="i1d"></small></li><li><b data-i="i2"></b><small data-i="i2d"></small></li><li><b data-i="i3"></b><small data-i="i3d"></small></li><li><b data-i="i4"></b><small data-i="i4d"></small></li></ul></div></section>
+
+<section class="show" id="show">
+<svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12151a"/><stop offset=".3" stop-color="#2a211d"/><stop offset=".48" stop-color="#b8691a"/><stop offset=".6" stop-color="#F2A900"/><stop offset="1" stop-color="#F2A900"/></linearGradient></defs>
+<rect width="1600" height="720" fill="url(#sk)"/>
+<circle id="sun" cx="840" cy="440" r="70" fill="#FFE6AE"/>
+<g id="p1"><path d="M-40 470L120 380 210 430 340 320 430 390 540 300 650 400 770 340 890 430 1010 330 1130 410 1270 310 1390 400 1510 350 1640 420V720H-40Z" fill="#2d2927"/></g>
+<g id="p2"><path d="M-40 540L140 450 270 520 410 440 540 520 700 450 840 540 1000 470 1140 550 1310 460 1450 530 1640 480V720H-40Z" fill="#1b1d20"/></g>
+<g id="p3"><path d="M-40 600H1640V720H-40Z" fill="#101214"/><g id="yard" fill="#16191c" stroke="#0a0b0c"></g><path d="M250 600V380M470 600V380M250 380H640L700 340H190L250 380M640 380V300H720M560 380V320H700" fill="none" stroke="#0a0b0c" stroke-width="12"/><path d="M1000 600V430M1180 600V430M1000 430H1330L1370 395H960L1000 430" fill="none" stroke="#0a0b0c" stroke-width="10"/></g>
+</svg>
+<div class="cp"><h2 class="disp" data-i="shT"></h2><p data-i="shD"></p></div>
+</section>
+
+<section class="ct" id="contact"><div class="w"><p class="eyebrow" data-i="n4"></p>
+<div class="cols"><h2 class="disp rv" data-i="ctT"></h2>
+<form id="f" novalidate><div><label for="a1" data-i="f1"></label><input id="a1" name="n" autocomplete="name"></div>
+<div><label for="a2" data-i="f2"></label><input id="a2" name="c" autocomplete="organization"></div>
+<div><label for="a3" data-i="f3"></label><select id="a3"><option id="o0" value=""></option><option id="o1"></option><option id="o2"></option><option id="o3"></option></select></div>
+<div><label for="a4" data-i="f4"></label><textarea id="a4"></textarea></div>
+<div class="row" style="align-items:center"><button class="btn a" type="submit" data-i="send"></button><span class="nt" data-i="nt"></span></div><p class="fm" id="fm" role="status"></p></form></div></div></section>
+</main>
+<footer><div class="w"><span data-i="ft1"></span><span data-i="ft2"></span></div></footer>
+
+<script>
+var T={en:{brand:"Your Company",n1:"Divisions",n2:"About",n3:"Industries",n4:"Contact",quote:"Request a Quote",eyebrow:"Muscat, Oman · Serving the GCC",h1a:"Powering industry.",h1b:"Moving the future.",lead:"Transportation, heavy equipment and warehousing, united under one company. Built for the scale of Oman and the Gulf.",c1:"Request a Quote",c2:"Explore Divisions",sKick:"What we do",sT:"Three divisions. One standard.",d1t:"Transportation & Logistics",d1d:"Heavy haulage and freight across Oman and the GCC, moving on schedule.",d1g:"Haulage · Freight · Project cargo",r1:"Oman",r2:"UAE",r3:"Saudi Arabia",r4:"Qatar",r5:"Bahrain",r6:"Kuwait",route:"Illustrative route across the Gulf.",d2t:"Heavy Equipment Rentals",d2d:"Cranes, excavators and loaders for projects of every size.",e1:"Cranes",e2:"Excavators",e3:"Loaders",e4:"Forklifts",e5:"Trailers",d3t:"Warehousing & Storage",d3d:"Secure storage and organised distribution, built for speed.",d3g:"Storage · Inventory · Distribution",aT:"About",aP:"One company. Three divisions. A single standard. We move, lift and store what industry depends on, so our clients can focus on what they build.",iT:"Industries",i1:"Construction",i1d:"Sites, structures and skylines",i2:"Infrastructure",i2d:"Roads, ports and utilities",i3:"Industrial",i3d:"Plants, mines and production",i4:"Commercial",i4d:"Retail, supply and distribution",shT:"Built for the landscape.",shD:"From the Hajar mountains to the Gulf coast.",ctT:"Let's move your next project.",f1:"Your name",f2:"Company",f3:"Service needed",o0:"Select a division",f4:"Tell us about your project",send:"Send request",nt:"Concept demo. This form does not send.",thanks:"Thank you. This is a design demo, so nothing was sent.",ft1:"Muscat, Sultanate of Oman",ft2:"Concept design by Wenoy",lg:"العربية"},
+ar:{brand:"اسم شركتك",n1:"الأقسام",n2:"من نحن",n3:"القطاعات",n4:"تواصل",quote:"اطلب عرض سعر",eyebrow:"مسقط، سلطنة عُمان · نخدم دول الخليج",h1a:"نُمكّن الصناعة.",h1b:"نُحرّك المستقبل.",lead:"النقل والمعدات الثقيلة والتخزين تحت مظلة شركة واحدة، مصمَّمة لحجم سلطنة عُمان ومنطقة الخليج.",c1:"اطلب عرض سعر",c2:"استكشف الأقسام",sKick:"ماذا نقدّم",sT:"ثلاثة أقسام. معيار واحد.",d1t:"النقل والخدمات اللوجستية",d1d:"نقل الشحنات الثقيلة والبضائع في سلطنة عُمان ودول الخليج بالتزام تام بالمواعيد.",d1g:"النقل الثقيل · الشحن · شحنات المشاريع",r1:"عُمان",r2:"الإمارات",r3:"السعودية",r4:"قطر",r5:"البحرين",r6:"الكويت",route:"مسار توضيحي عبر الخليج.",d2t:"تأجير المعدات الثقيلة",d2d:"رافعات وحفّارات ولودرات لمشاريع بكل الأحجام.",e1:"الرافعات",e2:"الحفّارات",e3:"اللودرات",e4:"الرافعات الشوكية",e5:"المقطورات",d3t:"التخزين والمستودعات",d3d:"تخزين آمن وتوزيع منظّم، مصمَّم للسرعة.",d3g:"التخزين · إدارة المخزون · التوزيع",aT:"من نحن",aP:"شركة واحدة. ثلاثة أقسام. معيار واحد. ننقل ونرفع ونخزّن ما تعتمد عليه الصناعة، لتركّز أنت على ما تبنيه.",iT:"القطاعات",i1:"الإنشاءات",i1d:"مواقع ومنشآت وأفق عمراني",i2:"البنية التحتية",i2d:"طرق وموانئ ومرافق",i3:"الصناعة",i3d:"مصانع ومناجم وإنتاج",i4:"التجارة",i4d:"التجزئة والإمداد والتوزيع",shT:"صُمّمت لتناسب هذه الأرض.",shD:"من جبال الحجر إلى ساحل الخليج.",ctT:"لنُحرّك مشروعك القادم.",f1:"الاسم",f2:"الشركة",f3:"الخدمة المطلوبة",o0:"اختر القسم",f4:"حدّثنا عن مشروعك",send:"إرسال الطلب",nt:"عرض توضيحي. هذا النموذج لا يرسل شيئاً.",thanks:"شكراً لك. هذا عرض تصميمي، لذلك لم يُرسل شيء.",ft1:"مسقط، سلطنة عُمان",ft2:"تصميم توضيحي من Wenoy",lg:"English"}};
+var L="en",ctx=null,rm=matchMedia("(prefers-reduced-motion: reduce)").matches,$=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+/* generated art */
+(function(){var s=44,x0=250,y0=120,sh=[["#F7C34D","#D79200","#A66F00"],["#5B6269","#3F454B","#2A2E33"],["#2A2E33","#1d2125","#14171A"],["#D9D4C8","#B9B3A5","#8f8a7d"]],h="",H=[[3,2,1,0],[2,3,2,1],[1,2,3,2],[0,1,2,2]],a=[];
+for(var gx=0;gx<4;gx++)for(var gy=0;gy<4;gy++)for(var k=0;k<H[gx][gy];k++)a.push([gx,gy,k]);
+a.sort(function(p,q){return (p[0]+p[1])-(q[0]+q[1])||p[2]-q[2]});
+a.forEach(function(c){var x=x0+(c[0]-c[1])*s,y=y0+(c[0]+c[1])*s*.5-c[2]*s+140,col=sh[(c[0]*2+c[1]+c[2])%4===0?0:((c[0]+c[1]+c[2])%3+1)];
+h+='<g class="cb"><polygon points="'+x+','+(y-s*.5)+' '+(x+s)+','+y+' '+x+','+(y+s*.5)+' '+(x-s)+','+y+'" fill="'+col[0]+'"/><polygon points="'+(x-s)+','+y+' '+x+','+(y+s*.5)+' '+x+','+(y+s*.5+s)+' '+(x-s)+','+(y+s)+'" fill="'+col[1]+'"/><polygon points="'+x+','+(y+s*.5)+' '+(x+s)+','+y+' '+(x+s)+','+(y+s)+' '+x+','+(y+s*.5+s)+'" fill="'+col[2]+'"/></g>'});
+$("#iso").innerHTML=h;
+var y="";for(var i=0;i<9;i++)for(var j=0;j<(i%3)+1;j++)y+='<rect x="'+(760+i*66)+'" y="'+(572-j*26)+'" width="60" height="24"/>';
+for(var i2=0;i2<4;i2++)y+='<rect x="'+(1240+i2*64)+'" y="574" width="58" height="26"/>';
+$("#yard").innerHTML=y})();
+/* language */
+function words(el,t){el.innerHTML="";t.split(" ").forEach(function(w,i,arr){var s=document.createElement("span");s.textContent=w+(i<arr.length-1?" ":"");el.appendChild(s)})}
+function setLang(l){L=l;var d=document.documentElement;d.lang=l;d.dir=l==="ar"?"rtl":"ltr";
+ $$("[data-i]").forEach(function(e){e.textContent=T[l][e.getAttribute("data-i")]});
+ $("#o0").textContent=T[l].o0;$("#o1").textContent=T[l].d1t;$("#o2").textContent=T[l].d2t;$("#o3").textContent=T[l].d3t;
+ $("#lg").textContent=T[l].lg;words($("#ap"),T[l].aP);$("#fm").textContent="";build()}
+/* animation */
+function build(){
+ if(ctx){ctx.revert();ctx=null}
+ if(rm||!window.gsap||!window.ScrollTrigger)return;
+ gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
+ var dir=L==="ar"?-1:1;
+ ctx=gsap.context(function(){
+  gsap.from(".nav",{yPercent:-100,opacity:0,duration:.9,ease:"power3.out"});
+  gsap.from(".ln span",{yPercent:115,duration:1.15,stagger:.14,ease:"power4.out",delay:.15});
+  gsap.from(".hero .eyebrow,.hero .lead,.hero .row",{y:26,opacity:0,duration:.9,stagger:.12,delay:.6,ease:"power3.out"});
+  gsap.from("#gl,#hf",{opacity:0,duration:1.6,delay:.2});
+  gsap.to(".hero .w",{yPercent:-10,opacity:.25,ease:"none",scrollTrigger:{trigger:"#hero",start:"top top",end:"bottom top",scrub:true}});
+  $$(".rv").forEach(function(el){gsap.from(el,{y:60,opacity:0,duration:1.1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 88%"}})});
+  /* d1: pinned route, truck drives with scroll */
+  var nodes=$$("#nodes span"),tw=$("#road").clientWidth,trw=$("#truck").offsetWidth;
+  gsap.fromTo("#truck",{x:0},{x:dir*(tw-trw),ease:"none",scrollTrigger:{trigger:"#d1",start:"top top",end:"+=1500",pin:true,scrub:.7,anticipatePin:1,
+   onUpdate:function(s){nodes.forEach(function(n,i){n.classList.toggle("on",s.progress>=i/(nodes.length-1)-.03)})}}});
+  gsap.from("#d1 .w > :not(.road):not(.nodes)",{y:40,opacity:0,stagger:.1,duration:.9,scrollTrigger:{trigger:"#d1",start:"top 70%"}});
+  /* d2: blueprint draws itself, section wipes in */
+  gsap.fromTo(".crane *",{strokeDashoffset:1},{strokeDashoffset:0,ease:"none",stagger:.12,scrollTrigger:{trigger:"#d2",start:"top 65%",end:"center 35%",scrub:.8}});
+  gsap.from(".idx li",{x:dir*-40,opacity:0,stagger:.1,duration:.8,scrollTrigger:{trigger:".idx",start:"top 85%"}});
+  ["#d2","#d3"].forEach(function(id){gsap.fromTo(id,{clipPath:"inset(7% 5% 0% 5%)"},{clipPath:"inset(0% 0% 0% 0%)",ease:"none",scrollTrigger:{trigger:id,start:"top 95%",end:"top 35%",scrub:true}})});
+  /* d3: crates stack up */
+  gsap.from(".cb",{y:70,opacity:0,stagger:.045,duration:.8,ease:"back.out(1.4)",scrollTrigger:{trigger:"#d3",start:"top 60%"}});
+  /* about: words light up */
+  gsap.fromTo("#ap span",{opacity:.16},{opacity:1,stagger:.06,ease:"none",scrollTrigger:{trigger:"#ap",start:"top 82%",end:"bottom 52%",scrub:true}});
+  gsap.from(".ind li",{y:44,opacity:0,stagger:.12,duration:.9,scrollTrigger:{trigger:".ind",start:"top 82%"}});
+  /* showcase parallax */
+  var sc={trigger:"#show",start:"top bottom",end:"bottom top",scrub:true};
+  gsap.fromTo("#p1",{x:dir*40},{x:dir*-60,ease:"none",scrollTrigger:sc});
+  gsap.fromTo("#p2",{x:dir*80},{x:dir*-120,ease:"none",scrollTrigger:sc});
+  gsap.fromTo("#p3",{x:dir*140},{x:dir*-200,ease:"none",scrollTrigger:sc});
+  gsap.fromTo("#sun",{y:70},{y:-60,ease:"none",scrollTrigger:sc});
+ });
+ ScrollTrigger.refresh()}
+/* 3D hero */
+function initGL(){try{
+ if(!window.THREE)return;var cv=$("#gl"),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});R.setPixelRatio(Math.min(window.devicePixelRatio||1,1.75));
+ var S=new THREE.Scene();S.fog=new THREE.Fog(0x0F1113,16,40);var C=new THREE.PerspectiveCamera(38,1,.1,80);
+ S.add(new THREE.AmbientLight(0xffffff,.65));var D=new THREE.DirectionalLight(0xffe1b0,1.15);D.position.set(8,12,6);S.add(D);
+ var pal=[0x2A2E33,0x5B6269,0x2A2E33,0xD9D4C8,0xF2A900,0x5B6269],G=new THREE.Group(),n=0;
+ var small=window.innerWidth<700,cols=small?3:5;
+ for(var ix=0;ix<cols;ix++)for(var iz=0;iz<3;iz++){var h=1+((ix*7+iz*3)%3);for(var iy=0;iy<h;iy++){
+  var m=new THREE.Mesh(new THREE.BoxGeometry(2.4,1,1),new THREE.MeshStandardMaterial({color:pal[(ix+iz*2+iy)%pal.length],roughness:.55,metalness:.35}));
+  m.position.set((ix-(cols-1)/2)*2.55,iy*1.04+.5,(iz-1)*1.15);G.add(m);
+  var e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),new THREE.LineBasicMaterial({color:0xE9E6DF,transparent:true,opacity:.28}));e.position.copy(m.position);G.add(e)}}
+ S.add(G);var gr=new THREE.GridHelper(60,60,0x3a3f45,0x23272b);S.add(gr);
+ var px=0,py=0,vis=true,hero=$("#hero");
+ hero.addEventListener("pointermove",function(e){px=e.clientX/window.innerWidth-.5;py=e.clientY/window.innerHeight-.5});
+ if("IntersectionObserver" in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting}).observe(hero);
+ function rs(){var w=hero.clientWidth,h=hero.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();var sx=w<700?.62:1;G.scale.set(sx,sx,sx)}
+ rs();window.addEventListener("resize",rs);$("#hf").style.display="none";
+ function frame(ms){var t=ms/1000;G.rotation.y=.55+t*.08+px*.5;G.position.x=document.documentElement.dir==="rtl"?-3.2:3.2;G.position.x*=(window.innerWidth<700?.15:1);
+  C.position.set(9+px*2,6.5-py*1.5,13);C.lookAt(G.position.x*.4,1.6,0);R.render(S,C)}
+ if(rm){frame(1500);return}
+ (function loop(ms){if(vis)frame(ms);requestAnimationFrame(loop)})(0)
+}catch(e){}}
+/* ui */
+function vb(){$("#show svg").setAttribute("viewBox",window.innerWidth<700?"250 0 900 720":"0 0 1600 720")}vb();addEventListener("resize",vb);
+$("#lg").onclick=function(){setLang(L==="en"?"ar":"en")};
+addEventListener("scroll",function(){$("#nav").classList.toggle("s",scrollY>60)},{passive:true});
+$("#f").addEventListener("submit",function(e){e.preventDefault();$("#fm").textContent=T[L].thanks});
+setLang("en");
+addEventListener("load",function(){initGL();build();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(window.ScrollTrigger)ScrollTrigger.refresh()})});
+</script>
+</body>
+</html>
